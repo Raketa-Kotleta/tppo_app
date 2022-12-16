@@ -1,28 +1,67 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav class="navbar">
+    <a class="brand" href="#">RS</a>
+    <ul>
+      <li>
+        <a href="#">Blog</a>
+      </li>
+      <li>
+        <router-link to="">Operator page</router-link>
+      </li>
+
+    </ul>
+    </nav>
+    <router-view/>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+<style >
+#app{
+  margin: 0;
+  padding: 0;
 }
-</script>
+body{
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  background-color: #333333;
+  display: flex;
+  align-items:center;
+}
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.navbar a {
+  color: #e7e7e7;
+}
+
+.navbar .brand {
+  display: block;
+  padding: 0 24px;
+  font-size: 24px;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items:center;
+  justify-content: flex-start;
+}
+
+.navbar ul li a {
+  color: #e7e7e7;
+  padding: 24px;
+  display: block;
+}
+
+.navbar ul a:hover,
+.navbar ul a:focus,
+.navbar ul .active {
+  background-color: #272727;
 }
 </style>
