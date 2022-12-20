@@ -1,21 +1,18 @@
 <template>
   <div id="app">
-    <nav class="navbar">
-    <a class="brand" href="#">RS</a>
-    <ul>
-      <li>
-        <a href="#">Blog</a>
-      </li>
-      <li>
-        <router-link to="">Operator page</router-link>
-      </li>
-
-    </ul>
-    </nav>
+    <NavBar></NavBar>
     <router-view/>
   </div>
 </template>
 
+<script>
+import NavBar from './components/NavBar.vue';
+export default{
+  components:{
+  NavBar
+}
+}
+</script>
 <style >
 #app{
   margin: 0;
