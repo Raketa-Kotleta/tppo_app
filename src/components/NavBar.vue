@@ -1,12 +1,15 @@
 <template>
     <nav class="navbar">
-        <a class="brand" href="#">RS</a>
+        <a class="navbar-brand" href="#">RS</a>
         <ul>
             <li>
-                <a href="#">Blog</a>
+                <router-link to="/">Manager page</router-link>
             </li>
             <li>
-                <router-link to="">Operator page</router-link>
+                <router-link to="operator">Operator page</router-link>
+            </li>
+            <li>
+                <router-link to="consultant">Сonsultant page</router-link>
             </li>
         </ul>
     </nav>
@@ -18,4 +21,7 @@ export default{
 
 </script>
 <style scoped>
+nav{
+    padding: 0 64px;
+}
 </style>

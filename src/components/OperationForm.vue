@@ -1,19 +1,36 @@
 <template>
-    <form action="" class="form">
-        <div class="input-group bg-primary p-5">
-            <label for="" class="label">Инн</label>
-            <input type="text" id="" class="input">
-            <button class="btn"></button>
+
+    <form class="operating-from flex-grow-1">       
+        <span class="text-primary hr-text">{{ Header }}</span>
+        <hr/>
+        <div class="mb-3" v-for="input in inputs" :key="input.id">
+            <label :for="input.id" class="form-label">{{input.name }}</label>
+            <input :type="input.type" class="form-control" :id="input.id">
         </div>
+        <button type="submit" class="btn btn-success" :click="submit">Отправить</button>
     </form>
 </template>
 <script>
 
 export default{
     name: "OperationForm",
+    props:{
+        Header:String,
+        Inputs: Array,
+        Submit: Function,
+    },
+    data(){
+        return{
+           inputs: this.Inputs,
+           submit: this.Submit
+        }
+    }
 }
 </script>
 <style scoped>
+.operating-from{
+   padding: 0 20vw;
+}
 .input-group{
     margin: 16px 0;
 }
@@ -35,5 +52,13 @@ export default{
     color: cornflowerblue;
     font-weight: 500;
     letter-spacing: 1px;
+    
+}
+hr{
+    margin: 2px 0;
+    margin-bottom: 16px;
+}
+.hr-text{
+    font-size: 1.2rem;
 }
 </style>
