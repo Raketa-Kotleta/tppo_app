@@ -1,6 +1,6 @@
 <template>
 <div class="d-flex">
-    <SubNavbar @navlink-click="ChangeComponent"></SubNavbar>
+    <SubNavbar @navlink-click="ChangeComponent" :headers="subnavbar_headers"></SubNavbar>
     <OperationForm v-if="Component == 'OperationForm'" v-bind:inputs="CurrentFormData.inputs" :header="CurrentFormData.header" :key="DataKey"></OperationForm>
     <OperationTable v-if="Component == 'OperationTable'" :headers="CurrentFormData.headers" :key="DataKey"></OperationTable>
 </div>
@@ -190,7 +190,80 @@ data(){
                     {name:"Действие"}
                 ],
             }
-        }
+        },
+        subnavbar_headers:[
+            {
+                id: 1,
+                name: "Создать новую заявку",
+                active: true,
+                click:()=>{
+                    this.ChangeComponent({
+                        infokey: "SaleBuyForm",
+                        component: "OperationForm"
+                    });
+                }
+            },
+            {
+                id: 2,
+                name:"Создать контрагента",
+                active: false,
+                click:()=>{
+                    this.ChangeComponent({
+                        infokey: "SellerForm",
+                        component: "OperationForm"
+                    });
+                }
+            },
+            {
+                id: 3,
+                name:"Зарегистрировать авто",
+                active: false,
+                click:()=>{
+                    this.ChangeComponent(
+                    {
+                        infokey: "AutoForm",
+                        component: "OperationForm"
+                    });
+                }
+            },
+            {
+                id: 4,
+                name:"Смотреть все созданные заявки на обработку",
+                active: false,
+                click:()=>{
+                    this.ChangeComponent(
+                    {
+                        infokey: "Createdapps",
+                        component: "OperationTable"
+                    });
+                }
+            },
+            {
+                id: 5,
+                name:"Смотреть все созданные заявки на формирование документа",
+                active: false,
+                click:()=>{
+                    this.ChangeComponent(
+                    {
+                        infokey: "Createdappsdocs",
+                        component: "OperationTable"
+                    });
+                }
+            },
+            {
+                id: 6,
+                name:"Создать запрос на формирование документа",
+                active: false,
+                click:()=>{
+                    this.ChangeComponent(
+                    {
+                        infokey: "Createdappsdocsall",
+                        component: "OperationTable"
+                    });
+                }
+            },
+            
+            ]
     }
 },
 methods:{

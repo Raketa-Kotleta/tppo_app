@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import ManagerPage from "@/components/ManagerPage"
+import OperatorPage from "@/components/OperatorPage"
+import ConsultantPage from "@/components/ConsultantPage"
 
 Vue.use(VueRouter)
 
@@ -12,12 +14,20 @@ const routes = [
     component: ManagerPage
   },
   {
-    path: '/about',
+    path: '/operator',
     name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: OperatorPage
+  },
+  {
+    path: '/consultant',
+    name: 'cons',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: ConsultantPage
   }
 ]
 
